@@ -8,24 +8,22 @@ NAMESERVERS=$(grep ^nameserver /etc/resolv.conf | cut -d " " -f 2 | sed 's/\(.*\
 
 PROVIDERS=(
     "1.1.1.1#cloudflare"
-    "4.2.2.1#level3"
-    "8.8.8.8#google"
-    "9.9.9.9#quad9"
-    "80.80.80.80#freenom"
-    "208.67.222.222#opendns"
-    "152.70.189.130#opennic"
-    "185.228.168.9#cleanbrowsing"
-    "77.88.8.88#yandex"
-    "176.103.130.130#adguard"
-    "156.154.70.5#neustar"
-    "38.132.106.139#cyberghost"
-    "195.46.39.39#safedns"
+    "103.247.36.36#dnsfilter1"
+    "103.247.37.37#dnsfilter2"
+    "208.67.222.222#cisco1"
+    "208.67.220.220#cisco2"
+    "64.6.64.6#neustar1"
+    "64.6.65.6#neustar2"
+    "8.8.8.8#google1"
+    "8.8.4.4#google2"
+    "77.88.8.8#yandex1"
+    "77.88.8.1#yandex2"
 )
 
 NS=( $NAMESERVERS ${PROVIDERS[@]} )
 
 # Domains to test. Duplicated domains are ok
-DOMAINS2TEST="www.google.com avito.ru facebook.com www.youtube.com vk.com ya.ru gmail.com www.google.com"
+DOMAINS2TEST="www.google.com avito.ru facebook.com www.youtube.com vk.com ya.ru gmail.com"
 
 declare -a total_avg
 function print_winner {
